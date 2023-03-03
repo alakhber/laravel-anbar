@@ -6,7 +6,7 @@
 @endsection
 @section('content')
     @empty($editdata)
-        <form method="post" action="{{ route('insert') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('brand.insert') }}" enctype="multipart/form-data">
             @csrf
             Foto:<br>
             <div>
@@ -35,7 +35,7 @@
             </div>
             <input type="hidden" name="id" value="{{ $editdata->id }}"><br>
             <button type="submit" class="btn btn-success">Yenile</button>
-            <a href="{{ route('select') }}"><button type="button" class="btn btn-dark">Legv et</button></a>
+            <a href="{{ route('brand.index') }}"><button type="button" class="btn btn-dark">Legv et</button></a>
         </form>
     @endisset
     <br><br>
@@ -74,13 +74,13 @@
         </thead>
 
         <tbody class="alldata">
-            @foreach ($list as $i => $info)
+            @foreach ($brands as $i => $brand)
                 <tr>
                     <td>{{ $i += 1 }}</td>
-                    <td><img src="{{ url($info->foto) }}" style="weight:70px; height:60px"></td>
-                    <td>{{ $info->brand }}</td>
-                    <td><a href="{{ route('sil', $info->id) }}"><button type="button" class="btn btn-danger" title="SİL"><i class="bi bi-trash-fill"></i></button></a>
-                        <a href="{{ route('edit', $info->id) }}"><button type="button" class="btn btn-primary" title="REDAKTƏ"><i class="bi bi-pen-fill"></i></button></a>
+                    <td><img src="{{ _asset($brand->foto) }}" style="weight:70px; height:60px"></td>
+                    <td>{{ $brand->brand }}</td>
+                    <td><a href="{{ route('brand.sil', $brand) }}"><button type="button" class="btn btn-danger" title="SİL"><i class="bi bi-trash-fill"></i></button></a>
+                        <a href="{{ route('brand.edit', $brand) }}"><button type="button" class="btn btn-primary" title="REDAKTƏ"><i class="bi bi-pen-fill"></i></button></a>
                     </td>
                 </tr>
             @endforeach
@@ -116,7 +116,7 @@
                 $.ajax({
                     method: 'POST',
                     type: 'GET',
-                    url: '{{ route('search') }}',
+                    url: '{{ route('brand.search') }}',
                     data: {
                         'search': $value
                     },

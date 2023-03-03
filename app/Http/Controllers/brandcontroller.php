@@ -38,28 +38,28 @@ class brandcontroller extends Controller
 
                 $con -> save();
 
-                return redirect()->route('select')->with('success','Brend ugurla daxil edildi!');
+                return redirect()->route('brand.index')->with('success','Brend ugurla daxil edildi!');
 
         }
-        return redirect()->route('select')->with('warning','Bu brend artıq mövcuddur!');
+        return redirect()->route('brand.index')->with('warning','Bu brend artıq mövcuddur!');
 
 }
 
      
-    public function select()
+    public function index()
     {
-        $data = brands::get()->where('user_id','=',Auth::id());
+        $brands = brands::get()->where('user_id','=',Auth::id());
 
         return view('brands',[
-            'list'=>$data
+            'brands'=>$brands
 
         ]);      
       }
 
-    public function sil($id)
+    public function sil(brands $brand)
     {
         
-       $sildata = brands::find($id); //where('id', '=' , $id)
+       $sildata = brands::find($brand); //where('id', '=' , $id)
        
        
         $data = brands::get()        
@@ -74,19 +74,19 @@ class brandcontroller extends Controller
     }
 
     
-    public function delete($id)
+    public function delete(brands $brand)
     {
         
-       $sil = brands::find($id)->delete(); //where('id', '=' , $id)
+       $sil = brands::find($brand)->delete(); //where('id', '=' , $id)
        
-       return redirect()->route('select')->with('success','Brend silindi');
+       return redirect()->route('brand.index')->with('success','Brend silindi');
        
     }
 
-    public function edit($id)
+    public function edit(brands $brand)
     {
         
-       $editdata = brands::find($id); //where('id', '=' , $id)
+       $editdata = brands::find($brand); //where('id', '=' , $id)
        
        $data = brands::get()        
         ->where('user_id','=',Auth::id());
@@ -123,7 +123,7 @@ class brandcontroller extends Controller
 
 
         $con->save(); 
-        return redirect()->route('select')->with('success','Brend yenilendi!');
+        return redirect()->route('brand.index')->with('success','Brend yenilendi!');
         
     }
 
