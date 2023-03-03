@@ -20,9 +20,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
-        'password',
         'email_verification_code',
-        'blok'
+        'blok',
+        'google_id',
+        'foto',
+        'password',
         ];
     /**
      * The attributes that should be hidden for serialization.
