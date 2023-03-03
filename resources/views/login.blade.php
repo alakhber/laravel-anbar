@@ -68,6 +68,9 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                 <input class="form-control" type="email" name="email" placeholder="Emailiniz...">
+                                @error('email')
+                                    <span>Bele Bir Istifadeci</span>
+                                @enderror
                                 </div>
                             </div>
                             <div class="col-lg-12">
