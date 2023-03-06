@@ -11,6 +11,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
+        "intervention/image": "^2.7",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
@@ -27,7 +28,9 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        }, "files": [
+            "app/Utilities/Helpers/all.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
