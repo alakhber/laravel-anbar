@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\Application\Web\BrandController;
 use Illuminate\Support\Facades\Route;
 
 
-use App\Http\Controllers\brandcontroller;
 use App\Http\Controllers\clientController;
 use App\Http\Controllers\GoogleLogin;
 use App\Http\Controllers\ordersController;
@@ -16,13 +16,13 @@ use App\Http\Controllers\staticController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Auth;
 
-    Route::prefix('brand')->name('brand.')->controller(brandcontroller::class)->group(function(){
+    Route::prefix('brand')->name('brand.')->controller(BrandController::class)->group(function(){
         Route::get('/', 'index')->name('index'); // select
-        Route::post('/brands', 'insert')->name('insert'); //insert 
-        Route::get('brandsil/{brand}', 'sil')->name('sil'); //sil he
-        Route::get('branddelete/{brand}', 'delete')->name('delete'); // sil
-        Route::get('brandedit/{brand}', 'edit')->name('edit');
-        Route::post('brandupdate', 'update')->name('update');
+        Route::get('/create', 'create')->name('create'); // select
+        Route::post('/create', 'store')->name('store'); //insert 
+        Route::get('show/{brand}', 'show')->name('edit');
+        Route::patch('show/{brand}', 'update')->name('update');
+        Route::get('delete/{brand}', 'destroy')->name('delete'); //sil he
         Route::post('/search', 'search')->name('search'); // select
     });
 
