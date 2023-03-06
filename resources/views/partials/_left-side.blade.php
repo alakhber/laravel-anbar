@@ -5,7 +5,7 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('hesabla') }}" aria-expanded="false"><i data-feather="check" class="feather-icon"></i><span class="hide-menu">STATISTIKA</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('brand.index') }}" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">BRANDS</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('admin.brand.index') }}" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">BRANDS</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('cselect') }}" aria-expanded="false"><i data-feather="user" class="feather-icon"></i><span class="hide-menu">CLIENTS</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('pselect') }}" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">PRODUCTS</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('orselect') }}" aria-expanded="false"><i data-feather="check" class="feather-icon"></i><span class="hide-menu">ORDERS</span></a></li>
